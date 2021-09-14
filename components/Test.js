@@ -53,7 +53,7 @@ export default function AllCameras() {
     navigator.mediaDevices.enumerateDevices().then(handleAudioDevices);
   }, [handleVideoDevices, handleAudioDevices]);
 
-  const handleStartCaptureClick = React.useCallback(() => {
+  const handleStartCaptureClick = useCallback(() => {
     setCapturing(true);
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: 'video/webm',
@@ -79,7 +79,7 @@ export default function AllCameras() {
     setCapturing(false);
   }, [mediaRecorderRef, webcamRef, setCapturing]);
 
-  const handleDownload = React.useCallback(() => {
+  const handleDownload = useCallback(() => {
     if (recordedChunks.length) {
       const blob = new Blob(recordedChunks, {
         type: 'video/webm',
