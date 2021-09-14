@@ -20,7 +20,7 @@ export default function AllCameras() {
     <Box>
       <Box mt="100px" mx="auto" w="500px" h="500px">
         {devices.map((device, key) => (
-          <Box>
+          <Box key={key}>
             <Webcam
               audio={false}
               videoConstraints={{ deviceId: device.deviceId }}
